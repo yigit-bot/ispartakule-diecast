@@ -3,157 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ispartakule Diecast</title>
-  <meta name="description" content="Ispartakule Diecast – güvenilir diecast model satış ve koleksiyon sitesi." />
+  <title>Ispartakule Diecast </title>
+  <meta name="description" content="Diecast ruhu ile premium diecast koleksiyon ve güvenilir satış." />
 
   <style>
-    .hero img {
-  width: 100%;
-  max-height: 260px;
-  object-fit: cover;
-  display: block;
+    :root{
+      --jdm-red:#bc002d; /* Japon kırmızısı */
+      --ink:#0f172a;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --bg:#ffffff;
     }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f8fafc;
-      color: #111827;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
     }
-.btn-main {
-  background: #166534;
-}
+    /* HERO */
+    .hero{position:relative}
+    .hero img{width:100%;height:320px;object-fit:cover;display:block}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45)}
+    .hero .wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:16px}
+    .badge{display:inline-block;border:1px solid #fff;border-radius:999px;padding:6px 12px;font-size:12px;margin-bottom:10px}
+    .hero h1{margin:8px 0 6px;font-size:34px;letter-spacing:.6px}
+    .hero h1 span{color:var(--jdm-red)}
+    .hero p{margin:0;font-size:14px;opacity:.9}
 
-.btn-main:hover {
-  background: #15803d;
-}
+    /* NAV */
+    nav{position:sticky;top:0;z-index:9;background:#fff;border-bottom:2px solid var(--jdm-red)}
+    nav .inner{max-width:1100px;margin:auto;display:flex;gap:18px;align-items:center;justify-content:center;padding:12px}
+    nav a{text-decoration:none;color:var(--ink);font-weight:700}
+    nav a:hover{color:var(--jdm-red)}
 
-.btn-alt {
-  background: #22c55e;
-  color: #064e3b;
-}
+    /* LAYOUT */
+    .container{max-width:1100px;margin:28px auto;padding:0 16px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
 
-.btn-alt:hover {
-  background: #4ade80;
-}
-    header {
-      background: #166534;
-      color: white;
-      padding: 24px 16px;
-      text-align: center;
-    }
+    /* CARD */
+    .card{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.06)}
+    .card h3{margin:0 0 8px;color:var(--jdm-red)}
+    .card p{margin:0;color:var(--muted);font-size:14px}
 
-    header h1 {
-      margin: 0;
-      font-size: 26px;
-    }
+    /* PRODUCT */
+    .product{display:flex;flex-direction:column}
+    .product img{width:100%;height:180px;object-fit:cover;border-radius:14px;border:1px solid var(--line)}
+    .product h4{margin:10px 0 4px}
+    .price{font-weight:800}
 
-    header p {
-      margin-top: 8px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:800}
+    .btn-primary{background:var(--jdm-red);color:#fff}
+    .btn-primary:hover{opacity:.9}
+    .btn-outline{border:2px solid var(--jdm-red);color:var(--jdm-red)}
+    .btn-outline:hover{background:var(--jdm-red);color:#fff}
 
-    nav {
-      background: white;
-      padding: 12px;
-      text-align: center;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #166534;
-    }
-
-    nav a:hover {
-      color: #22c55e;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 24px auto;
-      padding: 0 16px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: #166534;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #166534;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .btn:hover {
-      background: #22c55e;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 13px;
-      color: #6b7280;
-    }
+    /* FOOTER */
+    footer{border-top:1px solid var(--line);padding:22px;text-align:center;color:var(--muted);font-size:13px}
   </style>
 </head>
 <body>
 
-  <div class="hero">
-  <img src="banner.jpg" alt="Ispartakule Diecast">
-  </div>
+  <!-- HERO / ÜST GÖRSEL -->
+  <section class="hero">
+    <img src="banner.jpg" alt="JDM Diecast">
+    <div class="wrap">
+      <div>
+        <span class="badge">JDM • Premium • Güvenilir</span>
+        <h1>Ispartakule <span>Diecast</span></h1>
+        <p>Japonya ruhu, koleksiyon kalitesi</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- NAV -->
   <nav>
-    <a href="#">Anasayfa</a>
-    <a href="#">Ürünler</a>
-    <a href="#">İletişim</a>
+    <div class="inner">
+      <a href="#">Anasayfa</a>
+      <a href="#">Ürünler</a>
+      <a href="#">İletişim</a>
+    </div>
   </nav>
 
-  <div class="container">
+  <!-- CONTENT -->
+  <main class="container">
 
-    <div class="card">
-      <h2>Hoş geldin 👋</h2>
-      <p>
-        Ispartakule Diecast, koleksiyoncular için güvenilir ve şeffaf satış anlayışıyla
-        hizmet verir. Tüm ürünler orijinaldir.
-      </p>
-    </div>
+    <!-- INFO -->
+    <section class="grid">
+      <div class="card">
+        <h3>Orijinallik</h3>
+        <p>Tüm ürünler orijinal ve koleksiyon standartlarındadır.</p>
+      </div>
+      <div class="card">
+        <h3>Hızlı İletişim</h3>
+        <p>WhatsApp üzerinden anında dönüş.</p>
+      </div>
+      <div class="card">
+        <h3>JDM Odak</h3>
+        <p>Japon otomobil kültürüne özel seçki.</p>
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>Satış & İletişim</h2>
-      <p>
-        WhatsApp üzerinden hızlı ve güvenli iletişim için aşağıdaki butona tıklayabilirsin.
-      </p>
-      <a class="btn btn-main" href="https://wa.me/905078068834" target="_blank">
-  Ahmet E. – WhatsApp
-</a>
+    <!-- PRODUCTS -->
+    <section style="margin-top:28px" class="grid">
+      <div class="card product">
+        <img src="https://picsum.photos/seed/jdm1/600/400" alt="Ürün">
+        <h4>JDM Model 1</h4>
+        <div class="price">₺ —</div>
+      </div>
+      <div class="card product">
+        <img src="https://picsum.photos/seed/jdm2/600/400" alt="Ürün">
+        <h4>JDM Model 2</h4>
+        <div class="price">₺ —</div>
+      </div>
+      <div class="card product">
+        <img src="https://picsum.photos/seed/jdm3/600/400" alt="Ürün">
+        <h4>JDM Model 3</h4>
+        <div class="price">₺ —</div>
+      </div>
+    </section>
 
-<br><br>
+    <!-- CONTACT -->
+    <section style="margin-top:28px" class="card">
+      <h3>Satış & İletişim</h3>
+      <p style="margin-bottom:12px">WhatsApp üzerinden ulaş:</p>
+      <a class="btn btn-primary" href="https://wa.me/905078068834" target="_blank">Ahmet E. – WhatsApp</a>
+      <a class="btn btn-outline" href="https://wa.me/905516505580" target="_blank" style="margin-left:8px">Yiğit A. – WhatsApp</a>
+    </section>
 
-<a class="btn btn-alt" href="https://wa.me/905516505580" target="_blank">
-  Yiğit A. – WhatsApp
-</a>
-    </div>
-
-  </div>
+  </main>
 
   <footer>
-    © 2025 Ispartakule Diecast • Tüm hakları saklıdır
+    © 2025 Ispartakule Diecast • Tüm Hakları Saklıdır
   </footer>
 
 </body>
